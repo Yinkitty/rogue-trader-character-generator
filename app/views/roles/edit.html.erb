@@ -1,0 +1,10 @@
+<% title "Edit Role" %>
+
+<%= render 'form' %>
+
+<p>
+  <% if can? :read, @role %>
+    <%= link_to "Show", @role %> |
+    <%= link_to "View All", roles_path %>
+  <% end %>
+</p>

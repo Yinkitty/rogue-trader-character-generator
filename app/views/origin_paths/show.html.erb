@@ -1,0 +1,24 @@
+<% title "Origin Path" %>
+
+<p>
+  <strong>Origin Path Stage:</strong>
+  <%= @origin_path.origin_path_stage_id %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @origin_path.name %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%= @origin_path.description %>
+</p>
+
+<p>
+  <% if can? :update, @origin_path %>
+    <%= link_to "Edit", edit_origin_path_path(@origin_path) %> |
+  <% end %>
+  <% if can? :destroy, @origin_path %>
+    <%= link_to "Destroy", @origin_path, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to "View All", origin_paths_path %>
+</p>

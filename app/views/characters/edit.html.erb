@@ -1,0 +1,10 @@
+<% title "Edit Character" %>
+
+<%= render 'form' %>
+
+<p>
+  <% if can? :read, @character %>
+    <%= link_to "Show", @character %> |
+  <% end %>
+  <%= link_to "View All", characters_path %>
+</p>

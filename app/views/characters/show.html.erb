@@ -1,0 +1,68 @@
+<% title "Character" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @character.name %>
+</p>
+<p>
+  <strong>User:</strong>
+  <%= @character.user.username.capitalize %>
+</p>
+<p>
+  <strong>Career Path:</strong>
+  <%= @character.career_path.name.capitalize %>
+</p>
+<p>
+  <strong>Weapon Skill:</strong>
+  <%= @character.weapon_skill %>
+</p>
+<p>
+  <strong>Ballistic Skill:</strong>
+  <%= @character.ballistic_skill %>
+</p>
+<p>
+  <strong>Strength:</strong>
+  <%= @character.strength %>
+</p>
+<p>
+  <strong>Toughness:</strong>
+  <%= @character.toughness %>
+</p>
+<p>
+  <strong>Agility:</strong>
+  <%= @character.agility %>
+</p>
+<p>
+  <strong>Intelligence:</strong>
+  <%= @character.intelligence %>
+</p>
+<p>
+  <strong>Perception:</strong>
+  <%= @character.perception %>
+</p>
+<p>
+  <strong>Will Power:</strong>
+  <%= @character.will_power %>
+</p>
+<p>
+  <strong>Fellowship:</strong>
+  <%= @character.fellowship %>
+</p>
+<p>
+  <strong>Experience To Spend:</strong>
+  <%= @character.experience_to_spend %>
+</p>
+<p>
+  <strong>Experience Spent:</strong>
+  <%= @character.experience_spent %>
+</p>
+
+<p>
+  <% if can? :update, @character %>
+    <%= link_to "Edit", edit_character_path(@character) %> |
+  <% end %>
+  <% if can? :destroy, @character %>
+    <%= link_to "Destroy", @character, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <%= link_to "View All", characters_path %>
+</p>

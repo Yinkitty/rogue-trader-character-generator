@@ -1,0 +1,13 @@
+one:
+  name: MyString
+  user_id: 1
+  career_path_id: 1
+  experience_to_spend: 1
+  experience_spent: 1
+
+two:
+  name: MyString
+  user_id: 1
+  career_path_id: 1
+  experience_to_spend: 1
+  experience_spent: 1

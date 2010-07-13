@@ -1,0 +1,27 @@
+<% title "Origin Paths" %>
+
+<table>
+  <tr>
+    <th>Origin Path Stage</th>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% for origin_path in @origin_paths %>
+    <tr>
+      <td><%= origin_path.origin_path_stage.name %></td>
+      <td><%= origin_path.name %></td>
+      <td><%= origin_path.description %></td>
+      <td><%= link_to "Show", origin_path %></td>
+      <% if can? :update, origin_path %>
+        <td><%= link_to "Edit", edit_origin_path_path(origin_path) %></td>
+      <% end %>
+      <% if can? :destroy, origin_path %>
+        <td><%= link_to "Destroy", origin_path, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if can? :create, OriginPath %>
+  <p><%= link_to "New Origin Path", new_origin_path_path %></p>
+<% end %>

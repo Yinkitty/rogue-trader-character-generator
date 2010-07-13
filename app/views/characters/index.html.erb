@@ -1,0 +1,36 @@
+<% title "Characters" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>User</th>
+    <th>Career Path</th>
+    <th>Career Rank</th>
+    <th>Experience To Spend</th>
+    <th>Experience Spent</th>
+    
+  </tr>
+  <% for character in @characters %>
+    <tr>
+      <td><%= character.name %></td>
+      <td><%= character.user.username.capitalize %></td>
+      <td><%= character.career_path.name.capitalize %></td>
+      <td><%= Character.career_rank(character.experience_spent) %></td>
+      <td><%= character.experience_to_spend %></td>
+      <td><%= character.experience_spent %></td>
+      <% if can? :read, character %>
+        <td><%= link_to "Show", character %></td>
+      <% end %>
+      <% if can? :update, character %>
+        <td><%= link_to "Edit", edit_character_path(character) %></td>
+      <% end %>
+      <% if can? :destroy, character %>
+        <td><%= link_to "Destroy", character, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if can? :create, Character %>
+  <p><%= link_to "New Character", new_character_path %></p>
+<% end %>

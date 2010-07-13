@@ -1,0 +1,25 @@
+<% title "Roles" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for role in @roles %>
+    <tr>
+      <td><%= role.name %></td>
+      <% if can? :read, role %>
+        <td><%= link_to "Show", role %></td>
+      <% end %>
+      <% if can? :update, role %>
+        <td><%= link_to "Edit", edit_role_path(role) %></td>
+      <% end %>
+      <% if can? :destroy, role %>
+        <td><%= link_to "Destroy", role, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if can? :create, Role %>
+  <p><%= link_to "New Role", new_role_path %></p>
+<% end %>

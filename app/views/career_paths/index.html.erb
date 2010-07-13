@@ -1,0 +1,24 @@
+<% title "Career Paths" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for career_path in @career_paths %>
+    <tr>
+      <td><%= career_path.name %></td>
+      <% if can? :read, career_path %>
+        <td><%= link_to "Show", career_path %></td>
+      <% end %>
+        <% if can? :update, career_path %><td><%= link_to "Edit", edit_career_path_path(career_path) %></td>
+      <% end %>
+      <% if can? :destroy, career_path %>
+        <td><%= link_to "Destroy", career_path, :confirm => 'Are you sure?', :method => :delete %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<% if can? :create, CareerPath %>
+  <p><%= link_to "New Career Path", new_career_path_path %></p>
+<% end %>

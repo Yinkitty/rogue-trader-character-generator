@@ -1,0 +1,7 @@
+<%= semantic_form_for @origin_path do |f| %>
+  <%= f.error_messages %>
+  <%= f.inputs %>
+  <% if can? :create, @origin_path %>
+    <p><%= f.buttons %></p>
+  <% end %>
+<% end %>
