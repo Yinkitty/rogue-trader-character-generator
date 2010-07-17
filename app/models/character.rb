@@ -1,7 +1,15 @@
 class Character < ActiveRecord::Base
   attr_accessible :name, :user_id, :career_path_id, :experience_to_spend, :experience_spent, :id,
     :weapon_skill, :ballistic_skill, :strength, :toughness, :agility, :intelligence, :perception, :will_power,
-    :fellowship
+    :fellowship, :home_world_id, :lure_of_the_void_id, :motivation_id, :birthright_id, :career_id, :trials_and_travails_id
+  
+  belongs_to :user
+  belongs_to :home_world
+  belongs_to :birthright
+  belongs_to :career
+  belongs_to :lure_of_the_void
+  belongs_to :motivation
+  belongs_to :trials_and_travails
   
   validates_presence_of :name, :career_path, :weapon_skill, :ballistic_skill,
     :strength, :toughness, :agility, :intelligence, :perception, :will_power, :fellowship
