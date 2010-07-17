@@ -16027,3 +16027,60 @@ Migrating to AddStatsToCharacters (20100711112257)
   [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `sessions`[0m
   [1m[35mSQL (0.6ms)[0m  describe `users`
   [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20100710221036)
+Migrating to AddSessionsTable (20100710221135)
+Migrating to CreateRoles (20100710221329)
+Migrating to DefaultRoles (20100710221449)
+Migrating to AddUsernameToUsers (20100710222714)
+Migrating to AddRoleIdToUsers (20100710222925)
+Migrating to CreateCharacters (20100711081458)
+Migrating to CreateCareerPaths (20100711083642)
+Migrating to DefaultCareerPaths (20100711111110)
+Migrating to AddStatsToCharacters (20100711112257)
+Migrating to CreateHomeWorlds (20100717075703)
+  [1m[35mSQL (162.9ms)[0m  CREATE TABLE `home_worlds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (69.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717075703')
+Migrating to CreateLureOfTheVoids (20100717075842)
+  [1m[36mSQL (148.6ms)[0m  [1mCREATE TABLE `lure_of_the_voids` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717075842')
+Migrating to CreateBirthrights (20100717075924)
+  [1m[36mSQL (157.2ms)[0m  [1mCREATE TABLE `birthrights` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717075924')
+Migrating to CreateTrialsAndTravails (20100717080027)
+  [1m[36mSQL (132.1ms)[0m  [1mCREATE TABLE `trials_and_travails` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717080027')
+Migrating to CreateMotivations (20100717080112)
+  [1m[36mSQL (133.3ms)[0m  [1mCREATE TABLE `motivations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717080112')
+Migrating to CreateCareers (20100717080151)
+  [1m[36mSQL (140.1ms)[0m  [1mCREATE TABLE `careers` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717080151')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `birthrights`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `birthrights`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `career_paths`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `career_paths`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `careers`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `careers`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `characters`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `characters`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `home_worlds`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `home_worlds`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `lure_of_the_voids`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `lure_of_the_voids`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `motivations`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `motivations`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `roles`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `roles`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `sessions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `sessions`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `trials_and_travails`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `trials_and_travails`[0m
+  [1m[35mSQL (0.7ms)[0m  describe `users`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
