@@ -3,9 +3,6 @@ class Character < ActiveRecord::Base
     :weapon_skill, :ballistic_skill, :strength, :toughness, :agility, :intelligence, :perception, :will_power,
     :fellowship
   
-  belongs_to :user
-  belongs_to :career_path
-  
   validates_presence_of :name, :career_path, :weapon_skill, :ballistic_skill,
     :strength, :toughness, :agility, :intelligence, :perception, :will_power, :fellowship
   validates_uniqueness_of :name

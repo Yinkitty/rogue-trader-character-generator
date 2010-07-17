@@ -1,7 +1,4 @@
 Rtcg::Application.routes.draw do |map|
-  resources :origin_path_stages
-
-  resources :origin_paths
 
   resources :career_paths
 

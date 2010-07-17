@@ -1,9 +1,0 @@
-one:
-  origin_path_stage_id: 1
-  name: MyString
-  description: MyText
-
-two:
-  origin_path_stage_id: 1
-  name: MyString
-  description: MyText
