@@ -1,18 +1,18 @@
 class BirthrightsController < ApplicationController
+
+  load_and_authorize_resource
+
   def index
     @birthrights = Birthright.all
   end
   
   def show
-    @birthright = Birthright.find(params[:id])
   end
   
   def new
-    @birthright = Birthright.new
   end
   
   def create
-    @birthright = Birthright.new(params[:birthright])
     if @birthright.save
       flash[:notice] = "Successfully created birthright."
       redirect_to @birthright
@@ -22,11 +22,9 @@ class BirthrightsController < ApplicationController
   end
   
   def edit
-    @birthright = Birthright.find(params[:id])
   end
   
   def update
-    @birthright = Birthright.find(params[:id])
     if @birthright.update_attributes(params[:birthright])
       flash[:notice] = "Successfully updated birthright."
       redirect_to @birthright
@@ -36,7 +34,6 @@ class BirthrightsController < ApplicationController
   end
   
   def destroy
-    @birthright = Birthright.find(params[:id])
     @birthright.destroy
     flash[:notice] = "Successfully destroyed birthright."
     redirect_to birthrights_url
