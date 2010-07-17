@@ -1,0 +1,17 @@
+<% title "Home Worlds" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for home_world in @home_worlds %>
+    <tr>
+      <td><%= home_world.name %></td>
+      <td><%= link_to "Show", home_world %></td>
+      <td><%= link_to "Edit", edit_home_world_path(home_world) %></td>
+      <td><%= link_to "Destroy", home_world, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Home World", new_home_world_path %></p>

@@ -1,0 +1,17 @@
+<% title "Lure Of The Voids" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for lure_of_the_void in @lure_of_the_voids %>
+    <tr>
+      <td><%= lure_of_the_void.name %></td>
+      <td><%= link_to "Show", lure_of_the_void %></td>
+      <td><%= link_to "Edit", edit_lure_of_the_void_path(lure_of_the_void) %></td>
+      <td><%= link_to "Destroy", lure_of_the_void, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Lure Of The Void", new_lure_of_the_void_path %></p>

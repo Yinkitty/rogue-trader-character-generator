@@ -1,0 +1,12 @@
+<% title "Lure Of The Void" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lure_of_the_void.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_lure_of_the_void_path(@lure_of_the_void) %> |
+  <%= link_to "Destroy", @lure_of_the_void, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", lure_of_the_voids_path %>
+</p>

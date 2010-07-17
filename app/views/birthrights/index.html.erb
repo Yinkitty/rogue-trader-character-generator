@@ -1,0 +1,17 @@
+<% title "Birthrights" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for birthright in @birthrights %>
+    <tr>
+      <td><%= birthright.name %></td>
+      <td><%= link_to "Show", birthright %></td>
+      <td><%= link_to "Edit", edit_birthright_path(birthright) %></td>
+      <td><%= link_to "Destroy", birthright, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Birthright", new_birthright_path %></p>

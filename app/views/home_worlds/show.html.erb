@@ -1,0 +1,12 @@
+<% title "Home World" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @home_world.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_home_world_path(@home_world) %> |
+  <%= link_to "Destroy", @home_world, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", home_worlds_path %>
+</p>

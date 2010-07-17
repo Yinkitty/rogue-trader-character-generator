@@ -1,4 +1,6 @@
 Rtcg::Application.routes.draw do |map|
+  resources :birthrights
+
   resources :lure_of_the_voids
 
   resources :home_worlds
