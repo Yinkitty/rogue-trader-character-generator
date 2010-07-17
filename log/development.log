@@ -15922,3 +15922,108 @@ Started GET "/origin_paths" for 127.0.0.1 at 2010-07-12 19:37:43 +0100
   [1m[35mCACHE (0.0ms)[0m  SELECT `origin_path_stages`.* FROM `origin_path_stages` WHERE (`origin_path_stages`.`id` = 6) LIMIT 1
 Rendered origin_paths/index.html.erb within layouts/application (143.9ms)
 Completed 200 OK in 231ms (Views: 145.7ms | ActiveRecord: 3.6ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (116.4ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (836.7ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20100710221036)
+  [1m[35mSQL (87.7ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `remember_token` varchar(255), `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[35mSQL (218.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `users`[0m
+  [1m[35mSQL (218.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (44.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100710221036')
+Migrating to AddSessionsTable (20100710221135)
+  [1m[36mSQL (89.8ms)[0m  [1mCREATE TABLE `sessions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `session_id` varchar(255) NOT NULL, `data` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `sessions`
+  [1m[36mSQL (218.0ms)[0m  [1mCREATE INDEX `index_sessions_on_session_id` ON `sessions` (`session_id`)[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW KEYS FROM `sessions`
+  [1m[36mSQL (217.9ms)[0m  [1mCREATE INDEX `index_sessions_on_updated_at` ON `sessions` (`updated_at`)[0m
+  [1m[35mSQL (38.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100710221135')
+Migrating to CreateRoles (20100710221329)
+  [1m[36mSQL (98.6ms)[0m  [1mCREATE TABLE `roles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (40.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100710221329')
+Migrating to DefaultRoles (20100710221449)
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `roles`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  describe `roles`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:21', 'Admin', '2010-07-17 07:55:21')[0m
+  [1m[35mSQL (50.8ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:22', 'Registered', '2010-07-17 07:55:22')
+  [1m[36mSQL (39.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `roles` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:22', 'Guest', '2010-07-17 07:55:22')[0m
+  [1m[35mSQL (39.8ms)[0m  COMMIT
+  [1m[36mSQL (38.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20100710221449')[0m
+Migrating to AddUsernameToUsers (20100710222714)
+  [1m[35mSQL (225.2ms)[0m  ALTER TABLE `users` ADD `username` varchar(255)
+  [1m[36mSQL (38.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20100710222714')[0m
+Migrating to AddRoleIdToUsers (20100710222925)
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`name` = 'Registered') LIMIT 1
+  [1m[36mSQL (235.0ms)[0m  [1mALTER TABLE `users` ADD `role_id` int(11) DEFAULT 2[0m
+  [1m[35mSQL (38.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100710222925')
+Migrating to CreateCharacters (20100711081458)
+  [1m[36mSQL (106.5ms)[0m  [1mCREATE TABLE `characters` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `user_id` int(11), `career_path_id` int(11), `experience_to_spend` int(11) DEFAULT 500, `experience_spent` int(11) DEFAULT 4500, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100711081458')
+Migrating to CreateCareerPaths (20100711083642)
+  [1m[36mSQL (98.4ms)[0m  [1mCREATE TABLE `career_paths` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (38.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100711083642')
+Migrating to DefaultCareerPaths (20100711111110)
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM `career_paths`[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  describe `career_paths`
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Arch-Militant', '2010-07-17 07:55:23')[0m
+  [1m[35mSQL (41.8ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Astropath Transcendent', '2010-07-17 07:55:23')
+  [1m[36mSQL (39.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Explorator', '2010-07-17 07:55:23')[0m
+  [1m[35mSQL (39.9ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Missionary', '2010-07-17 07:55:23')
+  [1m[36mSQL (39.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Navigator', '2010-07-17 07:55:23')[0m
+  [1m[35mSQL (40.0ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Rogue Trader', '2010-07-17 07:55:23')
+  [1m[36mSQL (39.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Seneschal', '2010-07-17 07:55:23')[0m
+  [1m[35mSQL (48.2ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `career_paths` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-17 07:55:23', 'Void-Master', '2010-07-17 07:55:23')
+  [1m[36mSQL (41.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (38.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100711111110')
+Migrating to AddStatsToCharacters (20100711112257)
+  [1m[36mSQL (225.3ms)[0m  [1mALTER TABLE `characters` ADD `weapon_skill` int(11) NOT NULL[0m
+  [1m[35mSQL (227.2ms)[0m  ALTER TABLE `characters` ADD `ballistic_skill` int(11) NOT NULL
+  [1m[36mSQL (253.5ms)[0m  [1mALTER TABLE `characters` ADD `strength` int(11) NOT NULL[0m
+  [1m[35mSQL (227.2ms)[0m  ALTER TABLE `characters` ADD `toughness` int(11) NOT NULL
+  [1m[36mSQL (235.5ms)[0m  [1mALTER TABLE `characters` ADD `agility` int(11) NOT NULL[0m
+  [1m[35mSQL (228.5ms)[0m  ALTER TABLE `characters` ADD `intelligence` int(11) NOT NULL
+  [1m[36mSQL (243.8ms)[0m  [1mALTER TABLE `characters` ADD `perception` int(11) NOT NULL[0m
+  [1m[35mSQL (235.5ms)[0m  ALTER TABLE `characters` ADD `will_power` int(11) NOT NULL
+  [1m[36mSQL (228.5ms)[0m  [1mALTER TABLE `characters` ADD `fellowship` int(11) NOT NULL[0m
+  [1m[35mSQL (42.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100711112257')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  describe `career_paths`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `career_paths`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `characters`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `characters`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `roles`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `roles`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `sessions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `sessions`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `users`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
