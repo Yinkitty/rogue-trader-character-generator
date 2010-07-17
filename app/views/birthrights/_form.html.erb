@@ -1,8 +1,5 @@
-<%= form_for @birthright do |f| %>
+<%= semantic_form_for @birthright do |f| %>
   <%= f.error_messages %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p><%= f.submit %></p>
+  <%= f.inputs %>
+  <%= f.buttons %>
 <% end %>

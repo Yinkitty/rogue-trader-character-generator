@@ -11,6 +11,12 @@
     <%= f.input :perception, :label => 'Perception', :required => false, :input_html => { :disabled => true, :size => 3 } %>
     <%= f.input :will_power, :label => 'Will Power', :required => false, :input_html => { :disabled => true, :size => 3 } %>
     <%= f.input :fellowship, :label => 'Fellowship', :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :home_world_id %>
+    <%= f.input :birthright_id %>
+    <%= f.input :lure_of_the_void_id %>
+    <%= f.input :trials_and_travails_id %>
+    <%= f.input :motivation_id %>
+    <%= f.input :career_id %>
   <% end %>
   
   <%= hidden_field :character, :user_id, :value => @character.user_id %>
