@@ -1,4 +1,6 @@
 Rtcg::Application.routes.draw do |map|
+  resources :motivations
+
   resources :trials_and_travails
 
   resources :birthrights

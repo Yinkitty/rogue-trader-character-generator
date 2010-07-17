@@ -1,0 +1,12 @@
+<% title "Motivation" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @motivation.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_motivation_path(@motivation) %> |
+  <%= link_to "Destroy", @motivation, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", motivations_path %>
+</p>

@@ -1,0 +1,17 @@
+<% title "Motivations" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for motivation in @motivations %>
+    <tr>
+      <td><%= motivation.name %></td>
+      <td><%= link_to "Show", motivation %></td>
+      <td><%= link_to "Edit", edit_motivation_path(motivation) %></td>
+      <td><%= link_to "Destroy", motivation, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Motivation", new_motivation_path %></p>
