@@ -16084,3 +16084,827 @@ Migrating to CreateCareers (20100717080151)
   [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `trials_and_travails`[0m
   [1m[35mSQL (0.7ms)[0m  describe `users`
   [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-18 09:33:56 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`name` = 'Guest') LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 3) LIMIT 1
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (29.0ms)
+Completed 200 OK in 320ms (Views: 112.0ms | ActiveRecord: 16.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2010-07-18 09:34:02 +0100
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.9ms)
+Rendered devise/registrations/new.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 78ms (Views: 59.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2010-07-18 09:34:16 +0100
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"+Qn6GNrD9fhGoO6IKcj6f7PJaExk7I6wJ4n6U/34F78=", "user"=>{"username"=>"kryptykfysh", "email"=>"kryptykfysh@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.`id` FROM `users` WHERE (`users`.`email` = BINARY 'kryptykfysh@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  describe `users`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `users` (`created_at`, `current_sign_in_at`, `current_sign_in_ip`, `email`, `encrypted_password`, `last_sign_in_at`, `last_sign_in_ip`, `password_salt`, `remember_created_at`, `remember_token`, `reset_password_token`, `role_id`, `sign_in_count`, `updated_at`, `username`) VALUES ('2010-07-18 08:34:17', NULL, NULL, 'kryptykfysh@gmail.com', '$2a$10$RokA2qsepLJL2MyWHf8DIenjofD7yRukbGi8cdmcf2Nt9hdWIi172', NULL, NULL, '$2a$10$RokA2qsepLJL2MyWHf8DIe', NULL, NULL, NULL, 2, 0, '2010-07-18 08:34:17', 'kryptykfysh')[0m
+  [1m[35mSQL (79.9ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2010-07-18 08:34:17', `current_sign_in_ip` = '127.0.0.1', `last_sign_in_at` = '2010-07-18 08:34:17', `last_sign_in_ip` = '127.0.0.1', `sign_in_count` = 1, `updated_at` = '2010-07-18 08:34:17' WHERE (`users`.`id` = 1)
+  [1m[36mSQL (54.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 466ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-18 09:34:17 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 2) LIMIT 1
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 119ms (Views: 10.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2010-07-18 09:34:20 +0100
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Redirected to http://localhost:3000/
+Completed 302 Found in 24ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-18 09:34:20 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`name` = 'Guest') LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 3) LIMIT 1
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 93ms (Views: 9.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-07-18 09:34:53 +0100
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.8ms)
+Rendered devise/sessions/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 85ms (Views: 54.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-07-18 09:34:59 +0100
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"+Qn6GNrD9fhGoO6IKcj6f7PJaExk7I6wJ4n6U/34F78=", "user"=>{"username"=>"kryptykfysh", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`username` = 'kryptykfysh') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2010-07-18 08:35:00', `sign_in_count` = 2, `updated_at` = '2010-07-18 08:35:00' WHERE (`users`.`id` = 1)
+  [1m[36mSQL (64.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 217ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-18 09:35:00 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 122ms (Views: 10.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-18 09:35:06 +0100
+  Processing by CharactersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+Rendered characters/_form.html.erb (81.1ms)
+Rendered characters/new.html.erb within layouts/application (101.8ms)
+Completed   in 262ms
+
+ActionView::Template::Error (undefined method `career_path' for #<Character:0x8bebb8c>):
+    1: <%= semantic_form_for @character do |f| %>
+    2:   <% f.inputs do %>
+    3:     <%= f.input :name %>
+    4:     <%= f.input :career_path, :label => 'Career Path' %>
+    5:     <%= f.input :weapon_skill, :label => 'Weapon Skill', :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    6:     <%= f.input :ballistic_skill, :label => 'Ballistic Skill', :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    7:     <%= f.input :strength, :label => 'Strength', :required => false, :input_html => { :disabled => true, :size => 3 } %>
+/home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activemodel-3.0.0.beta4/lib/active_model/attribute_methods.rb:358:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/attribute_methods.rb:45:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1004:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:992:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:900:in `to_input_field_tag'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:610:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1116:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:601:in `basic_input_helper'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:606:in `string_input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1220:in `inline_input_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:107:in `block in input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `map'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `input'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:4:in `block (2 levels) in _render_template_944030463_82178430_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1303:in `field_set_and_list_wrapping'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:268:in `inputs'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2:in `block in _render_template_944030463_82178430_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:530:in `fields_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:308:in `form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1762:in `block in semantic_form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1730:in `with_custom_field_error_proc'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1761:in `semantic_form_for'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:1:in `_render_template_944030463_82178430_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:292:in `render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:221:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:219:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:332:in `_render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:30:in `render'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/new.html.erb:3:in `_render_template_6668623_82211520__94593388'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:58:in `block in _render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:55:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:25:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:114:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:92:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:17:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block (2 levels) in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:77:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:38:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:145:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:438:in `_run__447363392__process_action__152896375__callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `_run_process_action_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:29:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:28:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rescue.rb:8:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:114:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:40:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:126:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:166:in `block in action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:148:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:89:in `block in recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:80:in `optimized_each'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:88:in `recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:139:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:457:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/flash.rb:177:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/session/abstract_store.rb:106:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/cookies.rb:235:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:31:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:11:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/connection_pool.rb:365:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:414:in `_run_call_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/sendfile.rb:105:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/logger.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/runtime.rb:17:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/static.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:145:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/log_tailer.rb:15:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (172.5ms)
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (181.4ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-18 09:38:06 +0100
+  Processing by CharactersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+Rendered characters/_form.html.erb (14.9ms)
+Rendered characters/new.html.erb within layouts/application (16.7ms)
+Completed   in 143ms
+
+ActionView::Template::Error (undefined method `home_world_id' for #<Character:0x974832c>):
+    19:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    20:     <%= f.input :fellowship, :label => 'Fellowship', 
+    21:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    22:     <%= f.input :home_world_id %>
+    23:     <%= f.input :birthright_id %>
+    24:     <%= f.input :lure_of_the_void_id %>
+    25:     <%= f.input :trials_and_travails_id %>
+/home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activemodel-3.0.0.beta4/lib/active_model/attribute_methods.rb:358:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/attribute_methods.rb:45:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1004:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:992:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:900:in `to_input_field_tag'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:610:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1116:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:601:in `basic_input_helper'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:606:in `string_input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1220:in `inline_input_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:107:in `block in input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `map'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `input'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:22:in `block (2 levels) in _render_template_944030463_82969190_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1303:in `field_set_and_list_wrapping'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:268:in `inputs'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2:in `block in _render_template_944030463_82969190_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:530:in `fields_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:308:in `form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1762:in `block in semantic_form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1730:in `with_custom_field_error_proc'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1761:in `semantic_form_for'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:1:in `_render_template_944030463_82969190_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:292:in `render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:221:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:219:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:332:in `_render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:30:in `render'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/new.html.erb:3:in `_render_template_6668623_83016570__94593388'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:58:in `block in _render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:55:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:25:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:114:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:92:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:17:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block (2 levels) in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:77:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:38:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:145:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:438:in `_run__447363392__process_action__152896375__callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `_run_process_action_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:29:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:28:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rescue.rb:8:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:114:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:40:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:126:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:166:in `block in action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:148:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:89:in `block in recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:80:in `optimized_each'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:88:in `recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:139:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:457:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/flash.rb:177:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/session/abstract_store.rb:106:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/cookies.rb:235:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:31:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:11:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/connection_pool.rb:365:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:414:in `_run_call_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/sendfile.rb:105:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/logger.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/runtime.rb:17:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/static.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:145:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/log_tailer.rb:15:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (129.3ms)
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (136.8ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-18 09:42:22 +0100
+  Processing by CharactersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+Rendered characters/_form.html.erb (17.3ms)
+Rendered characters/new.html.erb within layouts/application (19.3ms)
+Completed   in 144ms
+
+ActionView::Template::Error (undefined method `home_world_id' for #<Character:0x98ce868>):
+    19:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    20:     <%= f.input :fellowship, :label => 'Fellowship', 
+    21:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    22:     <%= f.inputs :home_world_id %>
+    23:     <%= f.inputs :birthright_id %>
+    24:     <%= f.inputs :lure_of_the_void_id %>
+    25:     <%= f.inputs :trials_and_travails_id %>
+/home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activemodel-3.0.0.beta4/lib/active_model/attribute_methods.rb:358:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/attribute_methods.rb:45:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1004:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:992:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:900:in `to_input_field_tag'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:610:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1116:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:601:in `basic_input_helper'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:606:in `string_input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1220:in `inline_input_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:107:in `block in input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `map'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:277:in `block in inputs'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:277:in `collect'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:277:in `inputs'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:22:in `block (2 levels) in _render_template_944030463_80235100_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1303:in `field_set_and_list_wrapping'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:268:in `inputs'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2:in `block in _render_template_944030463_80235100_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:530:in `fields_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:308:in `form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1762:in `block in semantic_form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1730:in `with_custom_field_error_proc'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1761:in `semantic_form_for'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:1:in `_render_template_944030463_80235100_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:292:in `render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:221:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:219:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:332:in `_render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:30:in `render'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/new.html.erb:3:in `_render_template_6668623_75014650__94593388'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:58:in `block in _render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:55:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:25:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:114:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:92:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:17:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block (2 levels) in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:77:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:38:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:145:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:438:in `_run__447363392__process_action__152896375__callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `_run_process_action_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:29:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:28:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rescue.rb:8:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:114:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:40:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:126:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:166:in `block in action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:148:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:89:in `block in recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:80:in `optimized_each'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:88:in `recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:139:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:457:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/flash.rb:177:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/session/abstract_store.rb:106:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/cookies.rb:235:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:31:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:11:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/connection_pool.rb:365:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:414:in `_run_call_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/sendfile.rb:105:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/logger.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/runtime.rb:17:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/static.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:145:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/log_tailer.rb:15:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (128.7ms)
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (136.2ms)
+
+
+Started GET "/home_worlds" for 127.0.0.1 at 2010-07-18 09:43:09 +0100
+  Processing by HomeWorldsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+  [1m[35mHomeWorld Load (0.2ms)[0m  SELECT `home_worlds`.* FROM `home_worlds`
+Rendered home_worlds/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 96ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/home_worlds/new" for 127.0.0.1 at 2010-07-18 09:43:13 +0100
+  Processing by HomeWorldsController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+Rendered home_worlds/_form.html.erb (10.1ms)
+Rendered home_worlds/new.html.erb within layouts/application (26.2ms)
+Completed 200 OK in 110ms (Views: 46.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home_worlds" for 127.0.0.1 at 2010-07-18 09:43:25 +0100
+  Processing by HomeWorldsController#index as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+  [1m[35mHomeWorld Load (3.6ms)[0m  SELECT `home_worlds`.* FROM `home_worlds`
+Rendered home_worlds/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 114ms (Views: 9.4ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2010-07-18 09:43:33 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 122ms (Views: 10.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-18 09:43:35 +0100
+  Processing by CharactersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+Rendered characters/_form.html.erb (15.6ms)
+Rendered characters/new.html.erb within layouts/application (18.2ms)
+Completed   in 147ms
+
+ActionView::Template::Error (undefined method `home_world_id' for #<Character:0x8acb748>):
+    19:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    20:     <%= f.input :fellowship, :label => 'Fellowship', 
+    21:       :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    22:     <%= f.input :home_world_id %>
+    23:     <%= f.input :birthright_id %>
+    24:     <%= f.input :lure_of_the_void_id %>
+    25:     <%= f.input :trials_and_travails_id %>
+/home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activemodel-3.0.0.beta4/lib/active_model/attribute_methods.rb:358:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/attribute_methods.rb:45:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1004:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:992:in `value_before_type_cast'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:900:in `to_input_field_tag'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:610:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:1116:in `text_field'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:601:in `basic_input_helper'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:606:in `string_input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1220:in `inline_input_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:107:in `block in input'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `map'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:106:in `input'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:22:in `block (2 levels) in _render_template_944030463_81497820_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1303:in `field_set_and_list_wrapping'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:268:in `inputs'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2:in `block in _render_template_944030463_81497820_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `block in capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:169:in `with_output_buffer'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/capture_helper.rb:37:in `capture'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:530:in `fields_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/helpers/form_helper.rb:308:in `form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1762:in `block in semantic_form_for'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1730:in `with_custom_field_error_proc'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/formtastic-rails3-0.9.10.0/lib/formtastic.rb:1761:in `semantic_form_for'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:1:in `_render_template_944030463_81497820_107652476'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:292:in `render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:221:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:219:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/partials.rb:332:in `_render_partial'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:30:in `render'
+  /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/new.html.erb:3:in `_render_template_6668623_81519670__94593388'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:134:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/template.rb:126:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:58:in `block in _render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:55:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_view/render/rendering.rb:25:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:114:in `_render_template'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:92:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:17:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block (2 levels) in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:39:in `block in render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:77:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:38:in `render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:145:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rendering.rb:11:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:438:in `_run__447363392__process_action__152896375__callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:408:in `_run_process_action_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/callbacks.rb:17:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:29:in `block in process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/notifications.rb:48:in `instrument'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/instrumentation.rb:28:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rescue.rb:8:in `process_action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/base.rb:114:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/abstract_controller/rendering.rb:40:in `process'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:126:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_controller/metal.rb:166:in `block in action'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:27:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:148:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:89:in `block in recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:80:in `optimized_each'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/code_generation.rb:88:in `recognize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-mount-0.6.6/lib/rack/mount/route_set.rb:139:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/routing/route_set.rb:457:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:35:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/head.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/flash.rb:177:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/session/abstract_store.rb:106:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/cookies.rb:235:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:31:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:11:in `cache'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/query_cache.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activerecord-3.0.0.beta4/lib/active_record/connection_adapters/abstract/connection_pool.rb:365:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:414:in `_run_call_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/callbacks.rb:88:in `run_callbacks'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/sendfile.rb:105:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/show_exceptions.rb:48:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/logger.rb:14:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/runtime.rb:17:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/activesupport-3.0.0.beta4/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `block in call'
+  <internal:prelude>:10:in `synchronize'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/static.rb:30:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:145:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/application.rb:81:in `method_missing'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/railties-3.0.0.beta4/lib/rails/rack/log_tailer.rb:15:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+  /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/rack-1.1.0/lib/rack/handler/webrick.rb:48:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+  /home/kryptykfysh/.rvm/rubies/ruby-1.9.2-preview3/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (172.1ms)
+Rendered /home/kryptykfysh/.rvm/gems/ruby-1.9.2-preview3/gems/actionpack-3.0.0.beta4/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (179.5ms)
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20100710221036)
+Migrating to AddSessionsTable (20100710221135)
+Migrating to CreateRoles (20100710221329)
+Migrating to DefaultRoles (20100710221449)
+Migrating to AddUsernameToUsers (20100710222714)
+Migrating to AddRoleIdToUsers (20100710222925)
+Migrating to CreateCharacters (20100711081458)
+Migrating to CreateCareerPaths (20100711083642)
+Migrating to DefaultCareerPaths (20100711111110)
+Migrating to AddStatsToCharacters (20100711112257)
+Migrating to CreateHomeWorlds (20100717075703)
+Migrating to CreateLureOfTheVoids (20100717075842)
+Migrating to CreateBirthrights (20100717075924)
+Migrating to CreateTrialsAndTravails (20100717080027)
+Migrating to CreateMotivations (20100717080112)
+Migrating to CreateCareers (20100717080151)
+Migrating to AddHomeWorldToCharacters (20100717080930)
+  [1m[35mSQL (235.9ms)[0m  ALTER TABLE `characters` ADD `home_world_id` int(11)
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (44.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717080930')
+Migrating to AddBirthrightToCharacters (20100717081025)
+  [1m[36mSQL (216.7ms)[0m  [1mALTER TABLE `characters` ADD `birthright_id` int(11)[0m
+  [1m[35mSQL (38.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717081025')
+Migrating to AddLureOfTheVoidToCharacters (20100717081055)
+  [1m[36mSQL (216.8ms)[0m  [1mALTER TABLE `characters` ADD `lure_of_the_void_id` int(11)[0m
+  [1m[35mSQL (38.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717081055')
+Migrating to AddMotivationToCharacters (20100717081124)
+  [1m[36mSQL (226.3ms)[0m  [1mALTER TABLE `characters` ADD `motivation_id` int(11)[0m
+  [1m[35mSQL (38.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717081124')
+Migrating to AddTrialsAndTravailsToCharacters (20100717081159)
+  [1m[36mSQL (208.3ms)[0m  [1mALTER TABLE `characters` ADD `trials_and_travails_id` int(11)[0m
+  [1m[35mSQL (38.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717081159')
+Migrating to AddCareerToCharacters (20100717081246)
+  [1m[36mSQL (234.9ms)[0m  [1mALTER TABLE `characters` ADD `career_id` int(11)[0m
+  [1m[35mSQL (38.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20100717081246')
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  describe `birthrights`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `birthrights`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `career_paths`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `career_paths`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `careers`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `careers`[0m
+  [1m[35mSQL (0.7ms)[0m  describe `characters`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `characters`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `home_worlds`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `home_worlds`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `lure_of_the_voids`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `lure_of_the_voids`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `motivations`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `motivations`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `roles`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `roles`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `sessions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `sessions`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `trials_and_travails`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `trials_and_travails`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `users`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `users`[0m
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-18 09:45:14 +0100
+  Processing by CharactersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _render_template_944030463_80115370_107652476 at /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2)
+Rendered characters/_form.html.erb (24.4ms)
+Rendered characters/new.html.erb within layouts/application (29.9ms)
+Completed 200 OK in 122ms (Views: 34.8ms | ActiveRecord: 0.2ms)

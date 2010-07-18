@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100717080151) do
+ActiveRecord::Schema.define(:version => 20100717081246) do
 
   create_table "birthrights", :force => true do |t|
     t.string   "name"
@@ -33,19 +33,25 @@ ActiveRecord::Schema.define(:version => 20100717080151) do
     t.string   "name"
     t.integer  "user_id"
     t.integer  "career_path_id"
-    t.integer  "experience_to_spend", :default => 500
-    t.integer  "experience_spent",    :default => 4500
+    t.integer  "experience_to_spend",    :default => 500
+    t.integer  "experience_spent",       :default => 4500
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "weapon_skill",                          :null => false
-    t.integer  "ballistic_skill",                       :null => false
-    t.integer  "strength",                              :null => false
-    t.integer  "toughness",                             :null => false
-    t.integer  "agility",                               :null => false
-    t.integer  "intelligence",                          :null => false
-    t.integer  "perception",                            :null => false
-    t.integer  "will_power",                            :null => false
-    t.integer  "fellowship",                            :null => false
+    t.integer  "weapon_skill",                             :null => false
+    t.integer  "ballistic_skill",                          :null => false
+    t.integer  "strength",                                 :null => false
+    t.integer  "toughness",                                :null => false
+    t.integer  "agility",                                  :null => false
+    t.integer  "intelligence",                             :null => false
+    t.integer  "perception",                               :null => false
+    t.integer  "will_power",                               :null => false
+    t.integer  "fellowship",                               :null => false
+    t.integer  "home_world_id"
+    t.integer  "birthright_id"
+    t.integer  "lure_of_the_void_id"
+    t.integer  "motivation_id"
+    t.integer  "trials_and_travails_id"
+    t.integer  "career_id"
   end
 
   create_table "home_worlds", :force => true do |t|

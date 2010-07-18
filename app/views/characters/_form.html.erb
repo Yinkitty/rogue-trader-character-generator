@@ -1,16 +1,24 @@
 <%= semantic_form_for @character do |f| %>
   <% f.inputs do %>
     <%= f.input :name %>
-    <%= f.input :career_path, :label => 'Career Path' %>
-    <%= f.input :weapon_skill, :label => 'Weapon Skill', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :ballistic_skill, :label => 'Ballistic Skill', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :strength, :label => 'Strength', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :toughness, :label => 'Toughness', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :agility, :label => 'Agility', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :intelligence, :label => 'Intelligence', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :perception, :label => 'Perception', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :will_power, :label => 'Will Power', :required => false, :input_html => { :disabled => true, :size => 3 } %>
-    <%= f.input :fellowship, :label => 'Fellowship', :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :weapon_skill, :label => 'Weapon Skill', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :ballistic_skill, :label => 'Ballistic Skill', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :strength, :label => 'Strength', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :toughness, :label => 'Toughness', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :agility, :label => 'Agility', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :intelligence, :label => 'Intelligence', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :perception, :label => 'Perception', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :will_power, :label => 'Will Power', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :fellowship, :label => 'Fellowship', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
     <%= f.input :home_world_id %>
     <%= f.input :birthright_id %>
     <%= f.input :lure_of_the_void_id %>
