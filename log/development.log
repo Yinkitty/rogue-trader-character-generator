@@ -17113,3 +17113,78 @@ Migrating to DefaultBirthrights (20100719065245)
   [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `trials_and_travails`
   [1m[36mSQL (0.6ms)[0m  [1mdescribe `users`[0m
   [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `users`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateUsers (20100710221036)
+Migrating to AddSessionsTable (20100710221135)
+Migrating to CreateRoles (20100710221329)
+Migrating to DefaultRoles (20100710221449)
+Migrating to AddUsernameToUsers (20100710222714)
+Migrating to AddRoleIdToUsers (20100710222925)
+Migrating to CreateCharacters (20100711081458)
+Migrating to CreateCareerPaths (20100711083642)
+Migrating to DefaultCareerPaths (20100711111110)
+Migrating to AddStatsToCharacters (20100711112257)
+Migrating to CreateHomeWorlds (20100717075703)
+Migrating to CreateLureOfTheVoids (20100717075842)
+Migrating to CreateBirthrights (20100717075924)
+Migrating to CreateTrialsAndTravails (20100717080027)
+Migrating to CreateMotivations (20100717080112)
+Migrating to CreateCareers (20100717080151)
+Migrating to AddHomeWorldToCharacters (20100717080930)
+Migrating to AddBirthrightToCharacters (20100717081025)
+Migrating to AddLureOfTheVoidToCharacters (20100717081055)
+Migrating to AddMotivationToCharacters (20100717081124)
+Migrating to AddTrialsAndTravailsToCharacters (20100717081159)
+Migrating to AddCareerToCharacters (20100717081246)
+Migrating to DefaultHomeWorlds (20100719064626)
+Migrating to DefaultBirthrights (20100719065245)
+Migrating to DefaultLureOfTheVoids (20100719065532)
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM `lure_of_the_voids`
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  describe `lure_of_the_voids`
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:00', 'Tainted', '2010-07-19 06:58:00')[0m
+  [1m[35mSQL (59.3ms)[0m  COMMIT
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:01', 'Criminal', '2010-07-19 06:58:01')
+  [1m[36mSQL (39.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:01', 'Renegade', '2010-07-19 06:58:01')[0m
+  [1m[35mSQL (40.0ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:01', 'Duty Bound', '2010-07-19 06:58:01')
+  [1m[36mSQL (39.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.0ms)[0m  BEGIN
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:01', 'Zealot', '2010-07-19 06:58:01')[0m
+  [1m[35mSQL (40.0ms)[0m  COMMIT
+  [1m[36mSQL (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `lure_of_the_voids` (`created_at`, `name`, `updated_at`) VALUES ('2010-07-19 06:58:01', 'Chosen by Destiny', '2010-07-19 06:58:01')
+  [1m[36mSQL (40.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mSQL (0.3ms)[0m  describe `schema_migrations`
+  [1m[36mSQL (38.4ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('20100719065532')[0m
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `birthrights`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `birthrights`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `career_paths`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `career_paths`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `careers`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `careers`
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `characters`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `characters`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `home_worlds`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `home_worlds`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `lure_of_the_voids`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `lure_of_the_voids`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `motivations`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `motivations`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `roles`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `roles`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `sessions`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `sessions`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `trials_and_travails`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `trials_and_travails`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `users`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `users`
