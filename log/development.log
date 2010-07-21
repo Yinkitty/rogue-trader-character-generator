@@ -17484,3 +17484,65 @@ Migrating to DefaultCareers (20100720065756)
   [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `trials_and_travails`
   [1m[36mSQL (0.5ms)[0m  [1mdescribe `users`[0m
   [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `users`
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-21 07:52:23 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mRole Load (0.2ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`name` = 'Guest') LIMIT 1[0m
+  [1m[35mRole Load (0.3ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 3) LIMIT 1
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (37.6ms)
+Completed 200 OK in 270ms (Views: 119.9ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-07-21 07:52:27 +0100
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.0ms)
+Rendered devise/sessions/new.html.erb within layouts/application (23.5ms)
+Completed 200 OK in 90ms (Views: 57.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-07-21 07:52:35 +0100
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"NoNQDSBqfUY0vbwyGRvBH8Rdn6WufhRwKZYY5PZdm40=", "user"=>{"username"=>"kryptykfysh", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`username` = 'kryptykfysh') LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE `users` SET `current_sign_in_at` = '2010-07-21 06:52:35', `last_sign_in_at` = '2010-07-19 06:52:04', `sign_in_count` = 4, `updated_at` = '2010-07-21 06:52:35' WHERE (`users`.`id` = 1)
+  [1m[36mSQL (45.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 291ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-07-21 07:52:35 +0100
+  Processing by CharactersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.2ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT `characters`.* FROM `characters`[0m
+Rendered characters/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 118ms (Views: 10.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-21 07:52:37 +0100
+  Processing by CharactersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [1m[35mRole Load (0.1ms)[0m  SELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _render_template__341259016_97848550__944749604 at /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2)
+Rendered characters/_form.html.erb (25.1ms)
+Rendered characters/new.html.erb within layouts/application (46.8ms)
+Completed 200 OK in 193ms (Views: 69.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2010-07-21 07:53:40 +0100
+  Processing by CharactersController#new as HTML
+  [1m[35mUser Load (0.1ms)[0m  SELECT `users`.* FROM `users` WHERE (`users`.`id` = 1) LIMIT 1
+  [1m[36mRole Load (0.1ms)[0m  [1mSELECT `roles`.* FROM `roles` WHERE (`roles`.`id` = 1) LIMIT 1[0m
+  [1m[35mHomeWorld Load (0.3ms)[0m  SELECT `home_worlds`.* FROM `home_worlds`
+  [1m[36mBirthright Load (0.3ms)[0m  [1mSELECT `birthrights`.* FROM `birthrights`[0m
+  [1m[35mLureOfTheVoid Load (0.3ms)[0m  SELECT `lure_of_the_voids`.* FROM `lure_of_the_voids`
+  [1m[36mTrialsAndTravails Load (0.3ms)[0m  [1mSELECT `trials_and_travails`.* FROM `trials_and_travails`[0m
+  [1m[35mMotivation Load (0.3ms)[0m  SELECT `motivations`.* FROM `motivations`
+  [1m[36mCareer Load (0.3ms)[0m  [1mSELECT `careers`.* FROM `careers`[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from block in _render_template__341259016_97013060__944749604 at /home/kryptykfysh/workspace/Rogue-Trader-Character-Generator/app/views/characters/_form.html.erb:2)
+Rendered characters/_form.html.erb (284.5ms)
+Rendered characters/new.html.erb within layouts/application (290.4ms)
+Completed 200 OK in 429ms (Views: 293.5ms | ActiveRecord: 2.3ms)
