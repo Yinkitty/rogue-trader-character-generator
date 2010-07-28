@@ -11,7 +11,7 @@ gem 'warden', '0.10.7'
 gem 'cancan', '1.1.1'
 gem 'nifty-generators', '0.4.0'
 gem 'formtastic-rails3', '0.9.10.0'
-
+gem 'pg'
 
 # Use unicorn as the web server
 # gem 'unicorn'

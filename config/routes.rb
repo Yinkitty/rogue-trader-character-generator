@@ -11,9 +11,6 @@ Rtcg::Application.routes.draw do |map|
 
   resources :home_worlds
 
-
-  resources :career_paths
-
   resources :characters
 
   resources :roles

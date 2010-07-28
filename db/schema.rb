@@ -9,19 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100720065756) do
+ActiveRecord::Schema.define(:version => 20100724084716) do
 
   create_table "birthrights", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "career_paths", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  
+ActiveRecord::Schema.define(:version => 20100712064459) do
 
   create_table "careers", :force => true do |t|
     t.string   "name"
@@ -32,7 +28,6 @@ ActiveRecord::Schema.define(:version => 20100720065756) do
   create_table "characters", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "career_path_id"
     t.integer  "experience_to_spend",    :default => 500
     t.integer  "experience_spent",       :default => 4500
     t.datetime "created_at"
@@ -52,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20100720065756) do
     t.integer  "motivation_id"
     t.integer  "trials_and_travails_id"
     t.integer  "career_id"
+    t.string   "gender"
   end
 
   create_table "home_worlds", :force => true do |t|

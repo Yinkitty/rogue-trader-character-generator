@@ -1,0 +1,32 @@
+    <h2>Attributes</h2>
+    <%= f.input :name %>
+    <%= f.input :gender, :as => :select, :collection => ["Male", "Female"] %>
+    <%= f.input :weapon_skill, :label => 'Weapon Skill', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :ballistic_skill, :label => 'Ballistic Skill', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :strength, :label => 'Strength', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :toughness, :label => 'Toughness', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :agility, :label => 'Agility', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :intelligence, :label => 'Intelligence', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :perception, :label => 'Perception', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :will_power, :label => 'Will Power', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+    <%= f.input :fellowship, :label => 'Fellowship', 
+      :required => false, :input_html => { :disabled => true, :size => 3 } %>
+      
+    <%= hidden_field :character, :user_id, :value => @character.user_id %>
+    <%= hidden_field :character, :weapon_skill, :value => @character.weapon_skill %>
+    <%= hidden_field :character, :ballistic_skill, :value => @character.ballistic_skill %>
+    <%= hidden_field :character, :strength, :value => @character.strength %>
+    <%= hidden_field :character, :toughness, :value => @character.toughness %>
+    <%= hidden_field :character, :agility, :value => @character.agility %>
+    <%= hidden_field :character, :intelligence, :value => @character.intelligence %>
+    <%= hidden_field :character, :perception, :value => @character.perception %>
+    <%= hidden_field :character, :will_power, :value => @character.will_power %>
+    <%= hidden_field :character, :fellowship, :value => @character.fellowship %>

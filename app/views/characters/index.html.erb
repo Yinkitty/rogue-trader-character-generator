@@ -4,7 +4,6 @@
   <tr>
     <th>Name</th>
     <th>User</th>
-    <th>Career Path</th>
     <th>Career Rank</th>
     <th>Experience To Spend</th>
     <th>Experience Spent</th>
@@ -14,7 +13,6 @@
     <tr>
       <td><%= character.name %></td>
       <td><%= character.user.username.capitalize %></td>
-      <td><%= character.career_path.name.capitalize %></td>
       <td><%= Character.career_rank(character.experience_spent) %></td>
       <td><%= character.experience_to_spend %></td>
       <td><%= character.experience_spent %></td>

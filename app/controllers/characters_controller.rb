@@ -10,6 +10,7 @@ class CharactersController < ApplicationController
   end
   
   def new
+    session[:character_params] = {}
     @character.user_id = current_user.id
     @character.weapon_skill = Character.generate_stat
     @character.ballistic_skill = Character.generate_stat
@@ -23,12 +24,28 @@ class CharactersController < ApplicationController
   end
   
   def create
-    if @character.save
-      flash[:notice] = "Successfully created character."
-      redirect_to @character
+    session[:character_params].deep_merge!(params[:character]) if params[:character]
+    @character = Character.new(session[:character_params])
+    @character.current_step = session[:character_step]
+    if @character.valid?
+      if params[:back_button]
+        @character.previous_step
+      elsif @character.last_step?
+        @character.save if @character.all_valid?
+      else
+        @character.next_step
+      end
     else
-      render :action => 'new'
+      session[:character_step] = @character.current_step
     end
+    if @character.new_record?
+      render "new"
+    else
+      session[:character_step] = session[:character_params] = nil
+      flash[:notice] = "Character saved"
+      redirect_to @character
+    end
+    session[:character_step] = @character.current_step
   end
   
   def edit
