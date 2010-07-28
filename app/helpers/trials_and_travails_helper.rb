@@ -1,0 +1,2 @@
+module TrialsAndTravailsHelper
+end

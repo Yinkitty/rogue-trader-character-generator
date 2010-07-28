@@ -1,0 +1,12 @@
+<% title "Birthright" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @birthright.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_birthright_path(@birthright) %> |
+  <%= link_to "Destroy", @birthright, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", birthrights_path %>
+</p>

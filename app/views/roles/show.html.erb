@@ -1,0 +1,18 @@
+<% title "Role" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @role.name %>
+</p>
+
+<p>
+  <% if can? :update, @role %>
+    <%= link_to "Edit", edit_role_path(@role) %> |
+  <% end %>
+  <% if can? :destroy, @role %>
+    <%= link_to "Destroy", @role, :confirm => 'Are you sure?', :method => :delete %> |
+  <% end %>
+  <% if can? :read, Role %>
+    <%= link_to "View All", roles_path %>
+  <% end %>
+</p>

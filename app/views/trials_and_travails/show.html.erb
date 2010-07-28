@@ -1,0 +1,12 @@
+<% title "Trials And Travails" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trials_and_travails.name %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_trials_and_travails_path(@trials_and_travails) %> |
+  <%= link_to "Destroy", @trials_and_travails, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", trials_and_travails_path %>
+</p>

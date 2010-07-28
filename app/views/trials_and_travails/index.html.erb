@@ -1,0 +1,17 @@
+<% title "Trials And Travails" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for trials_and_travails in @trials_and_travails %>
+    <tr>
+      <td><%= trials_and_travails.name %></td>
+      <td><%= link_to "Show", trials_and_travails %></td>
+      <td><%= link_to "Edit", edit_trials_and_travails_path(trials_and_travails) %></td>
+      <td><%= link_to "Destroy", trials_and_travails, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Trials And Travails", new_trials_and_travails_path %></p>
